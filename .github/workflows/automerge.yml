@@ -19,6 +19,6 @@ jobs:
           git remote add upstream https://github.com/openwrt/openwrt.git
           
           git checkout openwrt-18.06
-          git merge --no-edit upstream/openwrt-18.06
+          git merge --ff-only  upstream/openwrt-18.06
           git push origin openwrt-18.06
         
