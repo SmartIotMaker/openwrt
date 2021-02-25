@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         with:
           ref: upstream             # set the branch to merge to
           fetch-depth: 0 
       - name: Merge upstream
-      - run: |
+        run: |
           git remote add upstream https://github.com/openwrt/openwrt.git
           
           git checkout master
