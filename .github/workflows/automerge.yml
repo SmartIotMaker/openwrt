@@ -23,7 +23,6 @@ jobs:
               do \
                   git checkout -b ${remote#origin/} origin/${remote#origin/}; \
                   git merge --no-edit upstream/${remote#origin/} \
-                  git push origin ${remote#origin/}
                   echo ${remote#origin/}
               done
               
