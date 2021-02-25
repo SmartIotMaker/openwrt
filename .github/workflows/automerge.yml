@@ -39,47 +39,48 @@ jobs:
           upstream-branch: lede-17.01   # set the upstream branch to merge from
           branch: lede-17.01          # set the branch to merge to
           
-  merge-upstream-openwrt-1806:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: master             # set the branch to merge to
-          fetch-depth: 0 
-      - name: Merge Upstream openwrt-18.06
-        uses: exions/merge-upstream@v1
-        with:
-          upstream: openwrt/openwrt      # set the upstream repo
-          upstream-branch: openwrt-18.06   # set the upstream branch to merge from
-          branch: openwrt-18.06          # set the branch to merge to
-          
-  merge-upstream-openwrt-1907:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: master             # set the branch to merge to
-          fetch-depth: 0
-      - name: Merge Upstream openwrt-19.07
-        uses: exions/merge-upstream@v1
-        with:
-          upstream: openwrt/openwrt      # set the upstream repo
-          upstream-branch: openwrt-19.07   # set the upstream branch to merge from
-          branch: openwrt-19.07          # set the branch to merge to
-          
-  merge-upstream-openwrt-2102:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: master             # set the branch to merge to
-          fetch-depth: 0
-      - name: Merge Upstream openwrt-21.02
-        uses: exions/merge-upstream@v1
-        with:
-          upstream: openwrt/openwrt      # set the upstream repo
-          upstream-branch: openwrt-21.02   # set the upstream branch to merge from
-          branch: openwrt-21.02          # set the branch to merge to
+#  merge-upstream-openwrt-1806:
+#    runs-on: ubuntu-latest
+#    steps: 
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#        with:
+#          ref: master             # set the branch to merge to
+#          fetch-depth: 0 
+#      - name: Merge Upstream openwrt-18.06
+#        uses: exions/merge-upstream@v1
+#        with:
+#          upstream: openwrt/openwrt      # set the upstream repo
+#          upstream-branch: openwrt-18.06   # set the upstream branch to merge from
+#          branch: openwrt-18.06          # set the branch to merge to
+#          
+#  merge-upstream-openwrt-1907:
+#    runs-on: ubuntu-latest
+#    steps: 
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#        with:
+#          ref: master             # set the branch to merge to
+#          fetch-depth: 0
+#      - name: Merge Upstream openwrt-19.07
+#        uses: exions/merge-upstream@v1
+#        with:
+#          upstream: openwrt/openwrt      # set the upstream repo
+#          upstream-branch: openwrt-19.07   # set the upstream branch to merge from
+#          branch: openwrt-19.07          # set the branch to merge to
+#          
+#  merge-upstream-openwrt-2102:
+#    runs-on: ubuntu-latest
+#    steps: 
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#        with:
+#          ref: master             # set the branch to merge to
+#          fetch-depth: 0
+#      - name: Merge Upstream openwrt-21.02
+#        uses: exions/merge-upstream@v1
+#        with:
+#          upstream: openwrt/openwrt      # set the upstream repo
+#          upstream-branch: openwrt-21.02   # set the upstream branch to merge from
+#          branch: openwrt-21.02          # set the branch to merge to
+#
