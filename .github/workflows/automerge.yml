@@ -15,15 +15,15 @@ jobs:
           git config --global user.name 'SmartIotMaker'
           git config --global user.email 'john.zhouhua@gmail.com'
           
-          git pull --unshallow
+          git pull
           git remote add upstream https://github.com/openwrt/openwrt.git
           git fetch upstream
           
-          git branch -r | grep -v '\->' | while read remote; \
+          git branch -r | grep -v '\->' | grep -v 'upstream' | while read remote; \
               do \
                   git checkout -b ${remote#origin/} origin/${remote#origin/}; \
                   git merge --no-edit upstream/${remote#origin/} \
                   git push origin ${remote#origin/}
-                  
+                  echo ${remote#origin/}
               done
               
