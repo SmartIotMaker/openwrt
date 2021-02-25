@@ -9,16 +9,33 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  merge:
+  merge-upstream:
     runs-on: ubuntu-latest
-    steps:
-      - name: checkout
+    steps: 
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: Merge upstream
-        run: |
-          git remote add upstream https://github.com/openwrt/openwrt.git
-          
-          git checkout master
-          git merge --ff-only  upstream/master
-          git push origin master
-        shell: bash
+        with:
+          ref: upstream             # set the branch to merge to
+          fetch-depth: 0 
+      - name: Merge Upstream
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: openwrt/openwrt      # set the upstream repo
+          upstream-branch: master   # set the upstream branch to merge from
+          branch: upstream          # set the branch to merge to
+
+  # set up another job to merge another branch
+  merge-upstream-openwrt-1806:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: openwrt-18.06       # set the branch to merge to
+          fetch-depth: 0 
+      - name: Merge Upstream
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: openwrt/openwrt              # set the upstream repo
+          upstream-branch: openwrt-18.06   # set the upstream branch to merge from
+          branch: openwrt-18.06            # set the branch to merge to
