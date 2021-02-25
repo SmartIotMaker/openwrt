@@ -12,10 +12,11 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
       - uses: actions/checkout@v2
+      
       - name: Merge upstream
-        run: |
-          git pull --unshallow
+      - run: |
           git remote add upstream https://github.com/openwrt/openwrt.git
           
           git checkout master
