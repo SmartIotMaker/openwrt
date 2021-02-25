@@ -24,7 +24,7 @@ jobs:
           upstream-branch: master   # set the upstream branch to merge from
           branch: master          # set the branch to merge to
       
-  merge-upstream-lede-17.01:
+  merge-upstream-lede-1701:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
@@ -39,7 +39,7 @@ jobs:
           upstream-branch: lede-17.01   # set the upstream branch to merge from
           branch: lede-17.01          # set the branch to merge to
           
-  merge-upstream-openwrt-18.06:
+  merge-upstream-openwrt-1806:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
@@ -54,7 +54,7 @@ jobs:
           upstream-branch: openwrt-18.06   # set the upstream branch to merge from
           branch: openwrt-18.06          # set the branch to merge to
           
-  merge-upstream-openwrt-19.07:
+  merge-upstream-openwrt-1907:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
@@ -69,7 +69,7 @@ jobs:
           upstream-branch: openwrt-19.07   # set the upstream branch to merge from
           branch: openwrt-19.07          # set the branch to merge to
           
-  merge-upstream-openwrt-21.02:
+  merge-upstream-openwrt-2102:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
