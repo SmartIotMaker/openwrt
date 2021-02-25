@@ -1,23 +1,49 @@
 name: Merge upstream branches
 on:
+  schedule:
+    - cron: '0 0 * * 1'
+    # scheduled for 00:00 every Monday
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 jobs:
-  merge:
+  merge-upstream:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Merge upstream
-        run: |
-          git remote add upstream https://github.com/openwrt/openwrt.git
-          
-          git branch -r | grep -v '\->' | grep -v 'upstream' | while read remote; \
-              do \
-                  git checkout ${remote#origin/}; \
-                  git merge --ff-only upstream/${remote#origin/}; \
-                  git push origin ${remote#origin/};
-              done
-        shell: bash
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master             # set the branch to merge to
+          fetch-depth: 0 
+      - name: Merge Upstream master
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: openwrt/openwrt      # set the upstream repo
+          upstream-branch: master   # set the upstream branch to merge from
+          branch: master          # set the branch to merge to
+      - name: Merge Upstream lede-17.01
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: openwrt/openwrt      # set the upstream repo
+          upstream-branch: lede-17.01   # set the upstream branch to merge from
+          branch: lede-17.01          # set the branch to merge to
+      - name: Merge Upstream openwrt-18.06
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: openwrt/openwrt      # set the upstream repo
+          upstream-branch: openwrt-18.06   # set the upstream branch to merge from
+          branch: openwrt-18.06          # set the branch to merge to
+      - name: Merge Upstream openwrt-19.07
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: openwrt/openwrt      # set the upstream repo
+          upstream-branch: openwrt-19.07   # set the upstream branch to merge from
+          branch: openwrt-19.07          # set the branch to merge to
+      - name: Merge Upstream openwrt-21.02
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: openwrt/openwrt      # set the upstream repo
+          upstream-branch: openwrt-21.02   # set the upstream branch to merge from
+          branch: openwrt-21.02          # set the branch to merge to
